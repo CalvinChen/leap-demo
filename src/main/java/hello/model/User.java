@@ -12,8 +12,6 @@ public class User extends Model {
     private String id;
     @Column
     private String name;
-    @NonColumn
-    private String nickName;
 
     public String getId() {
         return id;
@@ -29,13 +27,5 @@ public class User extends Model {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getNickName() {
-        return nickName;
-    }
-
-    public void setNickName(String nickName) {
-        this.nickName = nickName;
     }
 }

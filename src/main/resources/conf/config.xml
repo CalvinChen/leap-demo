@@ -4,7 +4,7 @@
 
     <properties>
         <property name="db.driverClassName">com.mysql.jdbc.Driver</property>
-        <property name="db.url">jdbc:mysql://localhost:3306/demo?useUnicode=true</property>
+        <property name="db.url">jdbc:mysql://localhost:3306/demo-orm?useUnicode=true</property>
         <property name="db.username">dev</property>
         <property name="db.password">123456</property>
     </properties>

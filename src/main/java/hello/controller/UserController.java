@@ -15,4 +15,5 @@ public class UserController extends ModelController<User> {
     public ApiResponse<List<User>> all(){
         return ApiResponse.ok(User.all());
     }
+
 }

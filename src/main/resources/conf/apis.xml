@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <apis xmlns="http://www.leapframework.org/schema/webapi">
-    <api name="api" base-path="/">
+    <api name="api" base-path="/" restd-enabled="true">
+        <restd>
+            <model name="User">
+                <sql-operation name="testAll" sql-key="user.all"/>
+                <sql-operation name="testSome" sql-key="user.some"/>
+            </model>
+        </restd>
     </api>
 </apis>

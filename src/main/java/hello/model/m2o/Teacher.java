@@ -1,14 +1,18 @@
-package hello.model;
+package hello.model.m2o;
 
 import leap.orm.annotation.Column;
 import leap.orm.annotation.Id;
 import leap.orm.annotation.Table;
 import leap.orm.model.Model;
 
-@Table("user")
-public class User extends Model {
+/**
+ * Created by calvin on 2017/6/28.
+ */
+@Table
+public class Teacher extends Model {
     @Id
     private String id;
+
     @Column
     private String name;
 

@@ -6,6 +6,9 @@ import leap.orm.annotation.NonColumn;
 import leap.orm.annotation.Table;
 import leap.orm.model.Model;
 
+import java.sql.Time;
+import java.time.LocalTime;
+
 @Table("user")
 public class User extends Model {
     @Id
@@ -14,6 +17,11 @@ public class User extends Model {
     private String name;
     @NonColumn
     private String nickName;
+    @Column
+    private Time birthTimeStart;
+    @Column
+    private LocalTime birthTimeEnd;
+
 
     public String getId() {
         return id;
@@ -37,5 +45,21 @@ public class User extends Model {
 
     public void setNickName(String nickName) {
         this.nickName = nickName;
+    }
+
+    public Time getBirthTimeStart() {
+        return birthTimeStart;
+    }
+
+    public void setBirthTimeStart(Time birthTimeStart) {
+        this.birthTimeStart = birthTimeStart;
+    }
+
+    public LocalTime getBirthTimeEnd() {
+        return birthTimeEnd;
+    }
+
+    public void setBirthTimeEnd(LocalTime birthTimeEnd) {
+        this.birthTimeEnd = birthTimeEnd;
     }
 }

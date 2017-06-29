@@ -14,6 +14,8 @@ public class User extends Model {
     private String name;
     @NonColumn
     private String nickName;
+    @Column
+    private String longNum;
 
     public String getId() {
         return id;
@@ -37,5 +39,13 @@ public class User extends Model {
 
     public void setNickName(String nickName) {
         this.nickName = nickName;
+    }
+
+    public String getLongNum() {
+        return longNum;
+    }
+
+    public void setLongNum(String longNum) {
+        this.longNum = longNum;
     }
 }

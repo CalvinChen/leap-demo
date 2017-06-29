@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.leapframework.org/schema/beans"
+       xsi:schemaLocation="http://www.leapframework.org/schema/beans http://www.leapframework.org/schema/beans">
+    <!-- 全局变量 -->
+</beans>

@@ -15,4 +15,9 @@ public class UserController extends ModelController<User> {
     public ApiResponse<List<User>> all(){
         return ApiResponse.ok(User.all());
     }
+
+    @GET("/one")
+    public ApiResponse<List<User>> one(){
+        return ApiResponse.ok(User.query("user.one").list());
+    }
 }

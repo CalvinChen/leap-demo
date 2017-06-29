@@ -1,25 +1,22 @@
-package hello.model.m2o;
+package hello.model.rel;
 
-import leap.orm.annotation.*;
+import leap.lang.meta.annotation.Filterable;
+import leap.orm.annotation.Column;
+import leap.orm.annotation.Id;
+import leap.orm.annotation.Table;
 import leap.orm.model.Model;
 
 /**
  * Created by calvin on 2017/6/28.
  */
 @Table
-public class Student extends Model {
+public class Teacher extends Model {
     @Id
     private String id;
 
     @Column
+    @Filterable
     private String name;
-
-    @Column
-    @ManyToOne(Teacher.class)
-    private String teacherId;
-
-    @Relational
-    private Teacher teacher;
 
     public String getId() {
         return id;
@@ -35,13 +32,5 @@ public class Student extends Model {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getTeacherId() {
-        return teacherId;
-    }
-
-    public void setTeacherId(String teacherId) {
-        this.teacherId = teacherId;
     }
 }

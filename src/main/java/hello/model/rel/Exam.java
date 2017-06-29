@@ -1,5 +1,6 @@
-package hello.model.m2o;
+package hello.model.rel;
 
+import leap.lang.meta.annotation.Filterable;
 import leap.orm.annotation.Column;
 import leap.orm.annotation.Id;
 import leap.orm.annotation.Table;
@@ -9,11 +10,13 @@ import leap.orm.model.Model;
  * Created by calvin on 2017/6/28.
  */
 @Table
-public class Teacher extends Model {
+public class Exam extends Model {
+
     @Id
     private String id;
 
     @Column
+    @Filterable
     private String name;
 
     public String getId() {

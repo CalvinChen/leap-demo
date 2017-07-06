@@ -1,5 +1,8 @@
 package hello.model;
 
+import leap.lang.meta.annotation.Creatable;
+import leap.lang.meta.annotation.Filterable;
+import leap.lang.meta.annotation.Sortable;
 import leap.orm.annotation.Column;
 import leap.orm.annotation.Id;
 import leap.orm.annotation.Table;
@@ -8,8 +11,12 @@ import leap.orm.model.Model;
 @Table("user")
 public class User extends Model {
     @Id
+    @Creatable
     private String id;
+
     @Column
+    @Filterable
+    @Sortable
     private String name;
 
     public String getId() {

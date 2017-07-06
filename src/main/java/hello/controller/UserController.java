@@ -1,6 +1,7 @@
 package hello.controller;
 
 import hello.model.User;
+import leap.web.annotation.Cors;
 import leap.web.annotation.Path;
 import leap.web.annotation.http.GET;
 import leap.web.api.mvc.ApiResponse;
@@ -12,6 +13,7 @@ import java.util.List;
 public class UserController extends ModelController<User> {
 
     @GET
+    @Cors(false)
     public ApiResponse<List<User>> all(){
         return ApiResponse.ok(User.all());
     }

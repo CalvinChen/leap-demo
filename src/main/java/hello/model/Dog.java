@@ -1,9 +1,6 @@
 package hello.model;
 
-import leap.orm.annotation.Column;
-import leap.orm.annotation.Id;
-import leap.orm.annotation.ManyToOne;
-import leap.orm.annotation.Table;
+import leap.orm.annotation.*;
 import leap.orm.model.Model;
 
 /**
@@ -16,9 +13,12 @@ public class Dog extends Model {
 
     @Column private String name;
 
-    @Column private String owner_id;
+    @Column
+    @ManyToOne(User.class)
+    private String owner_id;
 
-    @ManyToOne(User.class) private User owner;
+    @Relational
+    private User owner;
 
     public String getId() {
         return id;

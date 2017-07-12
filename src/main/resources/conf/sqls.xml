@@ -4,4 +4,34 @@
         select * from User
         where id = #{env.userId}
     </command>
+
+    <command key="testConcat1">
+        SELECT
+            count(*)
+        FROM
+            user pr
+        left join user d
+        on （1 = 1 and pr.id = CONCAT('U', :userId ))
+    </command>
+
+    <command key="testConcat2">
+        SELECT
+            count(*)
+        FROM
+            pan_sys_user_role pr
+        INNER JOIN pan_sys_user_role_org po
+        ON pr.id = po.related_id
+        AND po.org_id = "ALL"
+        AND (pr.user_id = :userId OR pr.user_id = CONCAT('U',#userId#))
+    </command>
+
+    <command key="when">select
+        CASE
+        WHEN id = 1 AND name = 1 THEN 1
+        WHEN id = 1 AND name = 2 THEN 2
+        WHEN id = 4 THEN 3
+        ELSE 0
+        end
+        from user
+    </command>
 </sqls>

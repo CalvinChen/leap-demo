@@ -22,4 +22,16 @@ public class UserController extends ModelController<User> {
     public ApiResponse<List<User>> one(){
         return ApiResponse.ok(User.query("user.one").list());
     }
+
+    @GET("/when")
+    public ApiResponse when() {
+        dao.createNamedQuery("when").list();
+        return ApiResponse.OK;
+    }
+
+    @GET("/concat")
+    public ApiResponse concat() {
+        dao.createNamedQuery("testConcat1").param("userId", "ck").list();
+        return ApiResponse.OK;
+    }
 }

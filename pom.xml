@@ -11,9 +11,27 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <leap.version>0.6.3b-SNAPSHOT</leap.version>
+        <leap.version>0.6.3b</leap.version>
         <slf4j.version>1.7.10</slf4j.version>
         <logback.version>1.0.13</logback.version>
+
+        <!-- common properties -->
+        <common.encoding>UTF-8</common.encoding>
+        <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <!-- maven properties -->
+        <maven.compile.source>${java.version}</maven.compile.source>
+        <maven.compile.target>${java.version}</maven.compile.target>
+        <maven.compile.encoding>${common.encoding}</maven.compile.encoding>
+        <maven.source.encoding>${common.encoding}</maven.source.encoding>
+        <maven.javadoc.encoding>${common.encoding}</maven.javadoc.encoding>
+        <maven.resources.encoding>${common.encoding}</maven.resources.encoding>
+        <maven.resources.includeEmptyDirs>true</maven.resources.includeEmptyDirs>
+
+        <!-- maven plugins version -->
+        <plugins.compiler.version>2.3.2</plugins.compiler.version>
     </properties>
 
     <dependencies>
@@ -63,4 +81,20 @@
             <scope>runtime</scope>
         </dependency>
     </dependencies>
+    <build>
+        <plugins>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${plugins.compiler.version}</version>
+                <configuration>
+                    <source>${maven.compile.source}</source>
+                    <target>${maven.compile.target}</target>
+                    <encoding>${maven.compile.encoding}</encoding>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
 </project>

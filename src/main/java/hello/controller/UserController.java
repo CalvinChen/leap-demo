@@ -12,7 +12,12 @@ import java.util.List;
 public class UserController extends ModelController<User> {
 
     @GET
-    public ApiResponse<List<User>> all(){
+    public ApiResponse<List<User>> all(String name){
         return ApiResponse.ok(User.all());
+    }
+
+    @GET("findDefaultUser")
+    public ApiResponse<User> findDefaultUser() {
+        return ApiResponse.ok(User.first());
     }
 }

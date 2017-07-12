@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <apis xmlns="http://www.leapframework.org/schema/webapi">
-    <api name="api" base-path="/">
+    <api name="api" base-path="/" restd-enabled="true">
     </api>
 </apis>

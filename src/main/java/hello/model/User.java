@@ -2,7 +2,6 @@ package hello.model;
 
 import leap.orm.annotation.Column;
 import leap.orm.annotation.Id;
-import leap.orm.annotation.NonColumn;
 import leap.orm.annotation.Table;
 import leap.orm.model.Model;
 
@@ -12,8 +11,6 @@ public class User extends Model {
     private String id;
     @Column
     private String name;
-    @NonColumn
-    private String nickName;
 
     public String getId() {
         return id;
@@ -29,13 +26,5 @@ public class User extends Model {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getNickName() {
-        return nickName;
-    }
-
-    public void setNickName(String nickName) {
-        this.nickName = nickName;
     }
 }

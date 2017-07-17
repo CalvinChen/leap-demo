@@ -34,4 +34,12 @@
         end
         from user
     </command>
+
+    <command key="testParams">
+        update Dog
+        set
+        owner_id = :ownerId,
+        name = :name
+        where id = :id
+    </command>
 </sqls>

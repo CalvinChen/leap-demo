@@ -1,19 +1,21 @@
 package hello.controller;
 
 import hello.model.User;
-import leap.web.annotation.Cors;
+import leap.core.validation.annotations.NotEmpty;
 import leap.web.annotation.Path;
 import leap.web.annotation.http.GET;
+import leap.web.annotation.http.POST;
 import leap.web.api.mvc.ApiResponse;
 import leap.web.api.mvc.ModelController;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Path("/user")
 public class UserController extends ModelController<User> {
 
     @GET
-    @Cors(false)
     public ApiResponse<List<User>> all(){
         return ApiResponse.ok(User.all());
     }
@@ -33,5 +35,19 @@ public class UserController extends ModelController<User> {
     public ApiResponse concat() {
         dao.createNamedQuery("testConcat1").param("userId", "ck").list();
         return ApiResponse.OK;
+    }
+
+    @GET("/params")
+    public ApiResponse params() {
+        Map<String, Object> params = new HashMap<>();
+        params.put("id", 1);
+        params.put("name", "ck");
+        dao.executeNamedUpdate("testParams", params);
+        return ApiResponse.OK;
+    }
+
+    @POST("/block")
+    public ApiResponse postjson(@NotEmpty String block) {
+        return ApiResponse.ok(block);
     }
 }

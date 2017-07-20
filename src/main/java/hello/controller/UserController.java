@@ -1,6 +1,8 @@
 package hello.controller;
 
+import hello.service.UserService;
 import hello.model.User;
+import leap.core.annotation.Inject;
 import leap.core.validation.annotations.NotEmpty;
 import leap.web.annotation.Path;
 import leap.web.annotation.http.GET;
@@ -14,6 +16,9 @@ import java.util.Map;
 
 @Path("/user")
 public class UserController extends ModelController<User> {
+
+    @Inject
+    private UserService userService;
 
     @GET
     public ApiResponse<List<User>> all(){
@@ -49,5 +54,15 @@ public class UserController extends ModelController<User> {
     @POST("/block")
     public ApiResponse postjson(@NotEmpty String block) {
         return ApiResponse.ok(block);
+    }
+
+    @GET("/getHelloUser")
+    public User getHelloUser() {
+        return userService.getHelloUser();
+    }
+
+    @GET("/bean")
+    public ApiResponse exec() {
+        return ApiResponse.ok(userService.execBean());
     }
 }

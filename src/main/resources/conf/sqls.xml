@@ -42,4 +42,8 @@
         name = :name
         where id = :id
     </command>
+
+    <command key="bean">
+        select * from user
+    </command>
 </sqls>

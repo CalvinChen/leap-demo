@@ -1,4 +1,4 @@
-package hello;
+package hello.service;
 
 import leap.core.AppContext;
 import leap.core.annotation.Bean;

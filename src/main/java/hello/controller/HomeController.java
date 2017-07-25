@@ -1,9 +1,12 @@
 package hello.controller;
 
+import hello.model.User;
 import leap.web.Response;
 import leap.web.Results;
 import leap.web.action.ControllerBase;
 import leap.web.annotation.Path;
+import leap.web.annotation.http.GET;
+import leap.web.view.ViewData;
 
 import javax.servlet.http.Cookie;
 
@@ -22,5 +25,14 @@ public class HomeController extends ControllerBase {
         response.getServletResponse().addCookie(cookie);
 
         Results.renderView("/home.html");
+    }
+
+    @GET
+    public void expr(ViewData data) {
+//        data.put("name", "hello");
+        User user = new User();
+        user.setId("251721");
+        user.setName("hello name");
+        data.put("user", user);
     }
 }

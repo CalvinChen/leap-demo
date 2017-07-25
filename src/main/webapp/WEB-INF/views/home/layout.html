@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>expr</title>
+    <script assets-src="/js/demo.js" type="text/javascript"></script>
+</head>
+<body>
+<p>${name}</p>
+<p>${user}</p>
+<p>#{user}</p>
+<p>\#{user}</p>
+<p>@{/user}</p>
+<p>\@{user}</p>
+<p>\${user}</p>
+<p>${user.id} + ${user.name}</p>
+<p>${user.name.toUpperCase()}</p>
+<a href="^/user">/user</a>
+<div>
+    <p>before: ${page.name}</p>
+    <!-- @ name = ${user.name} -->
+    <p>after: ${page.name}</p>
+</div>
+<p>outter: ${page.name}</p>
+
+<div>
+    <!-- #set auth = false -->
+    <h1>个人主页</h1>
+    <!-- #if(auth) -->
+        <p>欢迎回来</p>
+    <!-- #else -->
+        <p>无权访问</p>
+    <!-- #endif -->
+</div>
+
+<div>
+    <!-- #for(i: 2) -->
+        ${i}
+    <!-- #endfor -->
+</div>
+<div id="ww">
+</div>
+<!-- #render-fragment content -->
+</body>
+</html>

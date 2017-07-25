@@ -2,27 +2,18 @@ package hello.model;
 
 import leap.orm.annotation.Column;
 import leap.orm.annotation.Id;
-import leap.orm.annotation.NonColumn;
 import leap.orm.annotation.Table;
 import leap.orm.model.Model;
 
-@Table("user")
-public class User extends Model {
+/**
+ * Created by calvin on 2017/7/21.
+ */
+@Table(autoCreate = true)
+public class Company extends Model {
     @Id
     private String id;
     @Column
     private String name;
-    @NonColumn
-    private String nickName;
-
-    public User() {
-    }
-
-    public User(String id, String name, String nickName) {
-        this.id = id;
-        this.name = name;
-        this.nickName = nickName;
-    }
 
     public String getId() {
         return id;
@@ -38,13 +29,5 @@ public class User extends Model {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getNickName() {
-        return nickName;
-    }
-
-    public void setNickName(String nickName) {
-        this.nickName = nickName;
     }
 }

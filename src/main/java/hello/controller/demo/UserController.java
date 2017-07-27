@@ -1,4 +1,4 @@
-package hello.controller;
+package hello.controller.demo;
 
 import hello.model.User;
 import leap.web.annotation.Path;
@@ -8,7 +8,7 @@ import leap.web.api.mvc.ModelController;
 
 import java.util.List;
 
-@Path("/user")
+@Path("user")
 public class UserController extends ModelController<User> {
 
     @GET

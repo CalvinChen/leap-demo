@@ -1,6 +1,7 @@
 package hello.controller;
 
 import hello.model.User;
+import hello.web.Util;
 import leap.web.Response;
 import leap.web.Results;
 import leap.web.action.ControllerBase;
@@ -34,5 +35,19 @@ public class HomeController extends ControllerBase {
         user.setId("251721");
         user.setName("hello name");
         data.put("user", user);
+    }
+
+    @GET
+    public void format(ViewData data) {
+        data.put("util", Util.class);
+        data.put("num", 5.4);
+    }
+
+    public void renderView(){
+        Results.renderView("/test_render_view").setReturnValue("Hello world!");
+    }
+
+    public void frag(ViewData data) {
+        data.put("page.layout", "layout");
     }
 }

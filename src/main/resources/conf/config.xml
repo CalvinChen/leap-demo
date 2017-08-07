@@ -8,4 +8,11 @@
         <property name="db.username">dev</property>
         <property name="db.password">123456</property>
     </properties>
+
+    <properties prefix="webmvc">
+        <property name="viewsLocation">/WEB-INF/v</property>
+    </properties>
+    <properties prefix="webassets">
+        <property name="publicDirectory">/new_static</property>
+    </properties>
 </config>

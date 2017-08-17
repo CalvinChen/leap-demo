@@ -11,7 +11,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <leap.version>0.6.3b-SNAPSHOT</leap.version>
+        <leap.version>0.6.5b-SNAPSHOT</leap.version>
         <slf4j.version>1.7.10</slf4j.version>
         <logback.version>1.0.13</logback.version>
     </properties>
@@ -63,4 +63,14 @@
             <scope>runtime</scope>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>9.4.5.v20170502</version>
+            </plugin>
+        </plugins>
+    </build>
 </project>

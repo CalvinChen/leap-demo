@@ -10,4 +10,7 @@
 
         <property name="orm.autoGeneateModelFields">false</property>
     </properties>
+    <properties prefix="orm">
+        <property name="autoCreateTables">true</property>
+    </properties>
 </config>

@@ -2,12 +2,31 @@
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns="http://www.leapframework.org/schema/beans"
        xsi:schemaLocation="http://www.leapframework.org/schema/beans http://www.leapframework.org/schema/beans">
-    <bean name="default" type="javax.sql.DataSource" class="leap.db.cp.PooledDataSource" primary="true" destroy-method="close">
+    <bean id="master" type="javax.sql.DataSource" class="leap.db.cp.PooledDataSource" destroy-method="close">
         <property name="driverClassName" value="${db.driverClassName}" />
-        <property name="jdbcUrl"         value="${db.url}" />
+        <property name="jdbcUrl"         value="jdbc:mysql://localhost:3306/master?useUnicode=true" />
         <property name="username"        value="${db.username}" />
         <property name="password"        value="${db.password}" />
         <property name="maxActive"          value="10"/>
         <property name="maxWait"          value="10000"/>
     </bean>
+    <bean id="slave1" type="javax.sql.DataSource" class="leap.db.cp.PooledDataSource" destroy-method="close">
+        <property name="driverClassName" value="${db.driverClassName}" />
+        <property name="jdbcUrl"         value="jdbc:mysql://localhost:3306/slaver1?useUnicode=true" />
+        <property name="username"        value="${db.username}" />
+        <property name="password"        value="${db.password}" />
+        <property name="maxActive"          value="10"/>
+        <property name="maxWait"          value="10000"/>
+    </bean>
+
+    <bean name="default" type="javax.sql.DataSource" class="leap.core.ds.ReadWriteSplittingDataSource" primary="true">
+        <property name="defaultDataSource" ref-id="master"></property>
+        <property name="master" ref-id="master"></property>
+        <property name="slaves">
+            <list>
+                <ref id="slave1"></ref>
+            </list>
+        </property>
+    </bean>
+
 </beans>
